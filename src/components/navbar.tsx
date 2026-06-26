@@ -78,7 +78,7 @@ const Navbar = () => {
             </ul>
             <Link
               className="px-6 py-2 text-white dk-gradient-btn rounded-xl"
-              href="#contact"
+              href={pathname === "/" ? "#contact" : "/#contact"}
             >
               Let&apos;s Talk
             </Link>
@@ -147,7 +147,7 @@ const Navbar = () => {
             ))}
             <li className="flex text-white rounded-lg dk-gradient-bg">
               <Link
-                href="#contact"
+                href={pathname === "/" ? "#contact" : "/#contact"}
                 className="flex-1 py-4 dk-safe-x-padding"
                 onClick={closeMenu}
               >
