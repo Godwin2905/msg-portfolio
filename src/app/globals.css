@@ -71,7 +71,7 @@
   }
 
   .dk-section-distance {
-    @apply my-[172px];
+    @apply my-16 md:my-[172px];
   }
 }
 

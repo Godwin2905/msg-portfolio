@@ -56,7 +56,7 @@ export default function TeamAvatar3D() {
           style={{ willChange: "transform", transition: "transform 0.1s linear" }}
         >
           <div
-            className="relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] rounded-3xl flex flex-col items-center justify-center shadow-2xl"
+            className="relative w-[100px] h-[100px] md:w-[160px] md:h-[160px] rounded-3xl flex flex-col items-center justify-center shadow-2xl"
             style={{
               background: "linear-gradient(135deg, #a293ff22, #00f0ff22)",
               border: "1.5px solid #a293ff50",
@@ -66,7 +66,7 @@ export default function TeamAvatar3D() {
           >
             {/* Gradient initials */}
             <span
-              className="font-black text-4xl md:text-5xl"
+              className="font-black text-2xl md:text-5xl"
               style={{
                 background: "linear-gradient(135deg, #a293ff, #00f0ff)",
                 WebkitBackgroundClip: "text",
@@ -97,7 +97,7 @@ export default function TeamAvatar3D() {
             style={{ willChange: "transform", transition: "transform 0.1s linear" }}
           >
             <div
-              className="relative w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-3xl flex flex-col items-center justify-center shadow-2xl"
+              className="relative w-[90px] h-[90px] md:w-[140px] md:h-[140px] rounded-3xl flex flex-col items-center justify-center shadow-2xl"
               style={{
                 background: "linear-gradient(135deg, #00f0ff22, #a293ff22)",
                 border: "1.5px solid #00f0ff50",
@@ -106,7 +106,7 @@ export default function TeamAvatar3D() {
               }}
             >
               <span
-                className="font-black text-3xl md:text-4xl"
+                className="font-black text-xl md:text-4xl"
                 style={{
                   background: "linear-gradient(135deg, #00f0ff, #a293ff)",
                   WebkitBackgroundClip: "text",
@@ -134,7 +134,7 @@ export default function TeamAvatar3D() {
             style={{ willChange: "transform", transition: "transform 0.1s linear" }}
           >
             <div
-              className="relative w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-3xl flex flex-col items-center justify-center shadow-2xl"
+              className="relative w-[90px] h-[90px] md:w-[140px] md:h-[140px] rounded-3xl flex flex-col items-center justify-center shadow-2xl"
               style={{
                 background: "linear-gradient(135deg, #c084fc22, #818cf822)",
                 border: "1.5px solid #c084fc50",
@@ -143,7 +143,7 @@ export default function TeamAvatar3D() {
               }}
             >
               <span
-                className="font-black text-3xl md:text-4xl"
+                className="font-black text-xl md:text-4xl"
                 style={{
                   background: "linear-gradient(135deg, #c084fc, #818cf8)",
                   WebkitBackgroundClip: "text",

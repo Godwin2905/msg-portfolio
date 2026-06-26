@@ -64,7 +64,7 @@ const HeroSection = () => {
       },
     ].map((item, index) => ({
       ...item,
-      className: `absolute z-[1] h-auto ${item.className}`,
+      className: `hidden md:block absolute z-[1] h-auto ${item.className}`,
       initial: { ...item.initial, opacity: 0 },
       animate: { ...item.animate, opacity: inView ? 1 : 0 },
       transition: { ...item.transition, delay: 0.6 + index * 0.2 },
@@ -74,7 +74,7 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="dk-safe-x-padding mt-10 mb-[172px]"
+      className="dk-safe-x-padding mt-6 mb-16 md:mb-[172px]"
       aria-label="Hero Section"
     >
       <div className="grid grid-flow-row gap-10 xl:grid-cols-2 xl:grid-flow-col xl:gap-0">
@@ -89,7 +89,7 @@ const HeroSection = () => {
           </MotionWrapper>
           <MotionWrapper
             as="h2"
-            className="font-montserrat font-extrabold text-5xl md:text-[64px] md:leading-14 lg:text-[66px] lg:leading-[88px] dk-gradient-text mb-6 text-center xl:text-left"
+            className="font-montserrat font-extrabold text-[28px] leading-tight md:text-[64px] md:leading-14 lg:text-[66px] lg:leading-[88px] dk-gradient-text mb-6 text-center xl:text-left"
           >
             {CONFIG.role}
           </MotionWrapper>
@@ -109,7 +109,7 @@ const HeroSection = () => {
           <div className="relative flex items-center justify-center order-1 xl:justify-end">
             <div className="relative">
               <MotionWrapper
-                className="relative w-[320px] h-[320px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] bg-gray rounded-3xl overflow-clip flex items-center justify-center"
+                className="relative w-[250px] h-[250px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] bg-gray rounded-3xl overflow-clip flex items-center justify-center"
                 initial={{ opacity: 0, y: 60 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.9 }}

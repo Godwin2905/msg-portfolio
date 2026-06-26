@@ -31,7 +31,7 @@ const MyLatestProjectSection = () => {
           {CONFIG.projects.map((item, index) => (
             <MotionWrapper
               key={index.toString()}
-              className="relative overflow-hidden group rounded-2xl md:rounded-[25px] cursor-pointer"
+              className="relative group rounded-2xl md:rounded-[25px] cursor-pointer"
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.15 }}
@@ -39,36 +39,53 @@ const MyLatestProjectSection = () => {
               whileTap={{ scale: 0.98 }}
             >
               {/* Project image */}
-              <div className="bg-[#1a1a1a] p-5 rounded-2xl md:rounded-[25px] h-[220px] overflow-hidden">
+              <div className="bg-[#1a1a1a] p-5 rounded-2xl md:rounded-[25px] h-[200px] overflow-hidden">
                 <Image
                   className="object-cover w-full h-full rounded-xl"
                   src={item.image}
                   alt={`${item.title} project image`}
                   width={441}
-                  height={220}
+                  height={200}
                   priority
                 />
               </div>
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 transition-all duration-300 opacity-0 group-hover:opacity-100 bg-[#0d0d0d]/95 backdrop-blur-sm rounded-2xl md:rounded-[25px]">
+              {/* Mobile info strip — always visible on small screens */}
+              <div className="md:hidden px-4 py-3 bg-gray rounded-b-2xl flex items-center justify-between gap-3">
+                <div className="flex-1 min-w-0">
+                  <span className="text-[10px] font-bold uppercase tracking-widest dk-gradient-text">
+                    {item.category}
+                  </span>
+                  <p className="text-sm font-bold text-accent truncate">{item.title}</p>
+                  <p className="text-xs text-accent2 line-clamp-2 leading-relaxed mt-0.5">
+                    {item.summary}
+                  </p>
+                </div>
+                {item?.urls?.demo && (
+                  <Link
+                    className="shrink-0 p-2.5 bg-background rounded-xl text-xl dk-gradient-text border border-[#2a2a2a]"
+                    href={item.urls.demo}
+                    target="_blank"
+                    title="View Live"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <IoMdOpen />
+                  </Link>
+                )}
+              </div>
+
+              {/* Desktop hover overlay */}
+              <div className="hidden md:block absolute inset-0 transition-all duration-300 opacity-0 group-hover:opacity-100 bg-[#0d0d0d]/95 backdrop-blur-sm rounded-[25px]">
                 <div className="flex flex-col items-center justify-center w-full h-full px-6 gap-3">
-                  {/* Category badge */}
                   <span className="text-xs font-bold uppercase tracking-widest dk-gradient-text">
                     {item.category}
                   </span>
-
-                  {/* Title */}
                   <p className="text-xl font-bold text-center text-accent leading-tight">
                     {item.title}
                   </p>
-
-                  {/* Description */}
                   <p className="text-sm text-center text-accent2 line-clamp-3 leading-relaxed">
                     {item.summary}
                   </p>
-
-                  {/* Links */}
                   <div className="flex flex-row gap-3 text-2xl mt-1">
                     {item?.urls?.demo && (
                       <Link
