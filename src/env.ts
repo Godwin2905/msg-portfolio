@@ -6,10 +6,10 @@ export const env = createEnv({
     // Define server-side environment variables here
   },
   client: {
-    NEXT_PUBLIC_APP_URL: z.string().min(1).default("https://msg-portfolio.vercel.app"),
+    NEXT_PUBLIC_APP_URL: z.string().min(1),
   },
   // If you're using Next.js < 13.4.4, you'll need to specify the runtimeEnv manually
   runtimeEnv: {
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL ?? "https://msg-portfolio.vercel.app",
   },
 });
