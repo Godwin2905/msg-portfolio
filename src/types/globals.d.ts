@@ -18,18 +18,18 @@ declare type Config = {
   email: string;
   role: string;
   location: string;
-  quotes: {
+  quotes?: {
     text: string;
     author: string;
   };
-  socials: {
-    github: string;
-    linkedin: string;
-    instagram: string;
-    dribbble: string;
+  socials?: {
+    github?: string;
+    linkedin?: string;
+    instagram?: string;
+    dribbble?: string;
   };
   techStacks: TechStack[];
-  resume: {
+  resume?: {
     fileName: string;
     downloadUrl: string;
   };

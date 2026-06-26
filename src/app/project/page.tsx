@@ -9,11 +9,8 @@ import SectionHeader from "@/components/section-header";
 import { CONFIG } from "@/config";
 
 export const metadata: Metadata = {
-  title: "Projects - 3D theme Portfolio",
-  description: `Explore the latest projects by ${CONFIG.name.first.concat(
-    " ",
-    CONFIG.name.last,
-  )} in this section of the 3D theme Portfolio.`,
+  title: "Projects — MSGDev",
+  description: `Explore the latest projects by the MSG Dev Team — web apps, mobile apps, and AI automation solutions.`,
 };
 
 const TECH_STACK_ICON_MAX_LENGTH = 5;
@@ -23,8 +20,8 @@ export default function Project() {
   return (
     <section className="dk-safe-layout pt-20 overflow-y-hidden lg:min-h-[1000px]">
       <SectionHeader
-        title="My Latest Project"
-        description="Take a look at something I've worked on, such as a case study, real project, and more."
+        title="Our Projects"
+        description="A look at the work we've delivered — web platforms, mobile apps, and AI-powered solutions."
         className="text-center"
       />
       <div className="my-[50px] h-full">
@@ -51,7 +48,7 @@ export default function Project() {
                 key={project.title}
                 className="col-span-4 shadow hover:shadow-sm hover:scale-[1.01] rounded-2xl transition-all duration-500 ease-in-out"
               >
-                <div className="w-full h-full bg-white">
+                <div className="w-full h-full bg-[#1a1a1a]">
                   <div className="relative overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                     <Image
                       className="object-contain size-full"

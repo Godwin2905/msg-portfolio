@@ -16,7 +16,7 @@ const TechStackSection = () => {
     <section ref={ref} className="dk-safe-x-padding dk-section-distance">
       <SectionHeader
         title="Technology Stack"
-        description="I am concerned about security and performance for my clients. That's why I always keep updating and use the best technologies in a product."
+        description="We stay current with the best tools in the industry to deliver fast, secure, and scalable products for every client."
         inViewport={inView}
         className="text-center"
         animate
@@ -34,13 +34,11 @@ const TechStackSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href={`${item.siteUrl}?utm_source=deri.my.id&utm_medium=campaign&utm_campaign=portfolio`}
+                  href={item.siteUrl}
                   target="_blank"
-                  title={`Figure out about ${item.name}`}
+                  title={`Learn about ${item.name}`}
                 >
-                  <span
-                    className={`${item.color} **:size-20 lg:**:size-[100px]`}
-                  >
+                  <span className={`${item.color} **:size-20 lg:**:size-[100px]`}>
                     {item.icon}
                     <div className="sr-only">{item.name} Technology</div>
                   </span>

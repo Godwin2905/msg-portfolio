@@ -1,62 +1,48 @@
 import {
-  SiExpo,
-  SiExpress,
   SiJavascript,
-  SiLaravel,
   SiNextdotjs,
-  SiPrisma,
   SiReact,
   SiTailwindcss,
   SiTypescript,
+  SiFlutter,
+  SiFirebase,
+  SiSupabase,
+  SiNodedotjs,
+  SiExpress,
+  SiPostgresql,
+  SiOpenai,
+  SiFigma,
+  SiFramer,
+  SiWebflow,
+  SiWordpress,
+  SiVercel,
 } from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
+import { TbBrandReactNative, TbBrandAzure } from "react-icons/tb";
 
-/**
- * Register your tech stack used in your projects here.
- * Make sure the key is the same as the one used in the project config.
- */
 export const TECH_STACK = {
   nextjs: {
-    name: "Next JS",
+    name: "Next.js",
     icon: <SiNextdotjs />,
     color: "text-gray-900",
     siteUrl: "https://nextjs.org/",
   },
-  laravel: {
-    name: "Laravel",
-    icon: <SiLaravel />,
-    color: "text-red-500",
-    siteUrl: "https://laravel.com/",
-  },
-  expo: {
-    name: "Expo",
-    icon: <SiExpo />,
-    color: "text-black",
-    siteUrl: "https://expo.dev/",
-  },
-  prisma: {
-    name: "Prisma",
-    icon: <SiPrisma />,
-    color: "text-neutral-800",
-    siteUrl: "https://www.prisma.io/",
-  },
-  expressjs: {
-    name: "Express JS",
-    icon: <SiExpress />,
-    color: "text-black",
-    siteUrl: "https://expressjs.com/",
-  },
-  javascript: {
-    name: "Javascript",
-    icon: <SiJavascript />,
-    color: "text-yellow-400",
-    siteUrl: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-  },
   reactjs: {
-    name: "React JS",
+    name: "React.js",
     icon: <SiReact />,
     color: "text-blue-500",
     siteUrl: "https://reactjs.org/",
+  },
+  typescript: {
+    name: "TypeScript",
+    icon: <SiTypescript />,
+    color: "text-blue-600",
+    siteUrl: "https://www.typescriptlang.org/",
+  },
+  javascript: {
+    name: "JavaScript",
+    icon: <SiJavascript />,
+    color: "text-yellow-400",
+    siteUrl: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   tailwindcss: {
     name: "Tailwind CSS",
@@ -70,10 +56,82 @@ export const TECH_STACK = {
     color: "text-blue-500",
     siteUrl: "https://reactnative.dev/",
   },
-  typescript: {
-    name: "Typescript",
-    icon: <SiTypescript />,
+  flutter: {
+    name: "Flutter",
+    icon: <SiFlutter />,
+    color: "text-sky-400",
+    siteUrl: "https://flutter.dev/",
+  },
+  nodejs: {
+    name: "Node.js",
+    icon: <SiNodedotjs />,
+    color: "text-green-500",
+    siteUrl: "https://nodejs.org/",
+  },
+  expressjs: {
+    name: "Express.js",
+    icon: <SiExpress />,
+    color: "text-gray-700",
+    siteUrl: "https://expressjs.com/",
+  },
+  firebase: {
+    name: "Firebase",
+    icon: <SiFirebase />,
+    color: "text-yellow-500",
+    siteUrl: "https://firebase.google.com/",
+  },
+  supabase: {
+    name: "Supabase",
+    icon: <SiSupabase />,
+    color: "text-emerald-500",
+    siteUrl: "https://supabase.com/",
+  },
+  postgresql: {
+    name: "PostgreSQL",
+    icon: <SiPostgresql />,
+    color: "text-blue-700",
+    siteUrl: "https://www.postgresql.org/",
+  },
+  openai: {
+    name: "OpenAI API",
+    icon: <SiOpenai />,
+    color: "text-gray-800",
+    siteUrl: "https://openai.com/",
+  },
+  figma: {
+    name: "Figma",
+    icon: <SiFigma />,
+    color: "text-purple-500",
+    siteUrl: "https://figma.com/",
+  },
+  framer: {
+    name: "Framer",
+    icon: <SiFramer />,
+    color: "text-indigo-500",
+    siteUrl: "https://framer.com/",
+  },
+  webflow: {
+    name: "Webflow",
+    icon: <SiWebflow />,
     color: "text-blue-600",
-    siteUrl: "https://www.typescriptlang.org/",
+    siteUrl: "https://webflow.com/",
+  },
+  wordpress: {
+    name: "WordPress",
+    icon: <SiWordpress />,
+    color: "text-sky-700",
+    siteUrl: "https://wordpress.org/",
+  },
+  vercel: {
+    name: "Vercel",
+    icon: <SiVercel />,
+    color: "text-gray-900",
+    siteUrl: "https://vercel.com/",
+  },
+  azure: {
+    name: "Azure",
+    icon: <TbBrandAzure />,
+    color: "text-blue-500",
+    siteUrl: "https://azure.microsoft.com/",
   },
 } satisfies Record<string, TechStack>;

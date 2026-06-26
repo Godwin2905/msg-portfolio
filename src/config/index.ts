@@ -1,144 +1,86 @@
 import { TECH_STACK } from "../constant/tech-stack";
 
-/**
- * Configuration
- *
- * Modify the information below to customize your portfolio
- */
-
 export const CONFIG = {
   name: {
-    first: "Deri",
-    last: "Kurniawan",
+    first: "Godwin Abraham, Mashiruddin Mohammed",
+    last: "& Mohammed Saihaan",
   },
-  email: "hi@derikn.com",
-  role: "Full-stack Web Developer",
-  location: "Sukabumi Regency, West Java, Indonesia",
-  socials: {
-    github: "https://github.com/Deri-Kurniawan",
-    linkedin: "https://www.linkedin.com/in/deri-kurniawan",
-    instagram: "https://www.instagram.com/deri561",
-    dribbble: "https://dribbble.com/deri-kurniawan",
-  },
-  quotes: {
-    text: "This portfolio was made with heart and soul, pouring passion and creativity into every detail to bring it to life. It&apos;s not just a portfolio, it&apos;s a labor of love.",
-    author: "Deri Kurniawan",
-  },
+  email: "godwinabraham2905@gmail.com",
+  role: "Web, App & AI Automation Developer",
+  location: "UAE",
   techStacks: [
-    ...Object.values(TECH_STACK),
-    // you can add tech stack one by one if you don't want to use all registered tech stack
-    // TECH_STACK.nextjs,
-    // TECH_STACK.reactjs,
-    // TECH_STACK.tailwindcss,
+    TECH_STACK.nextjs,
+    TECH_STACK.reactjs,
+    TECH_STACK.typescript,
+    TECH_STACK.javascript,
+    TECH_STACK.tailwindcss,
+    TECH_STACK.reactnative,
+    TECH_STACK.flutter,
+    TECH_STACK.nodejs,
+    TECH_STACK.firebase,
+    TECH_STACK.supabase,
+    TECH_STACK.postgresql,
+    TECH_STACK.openai,
+    TECH_STACK.figma,
+    TECH_STACK.framer,
+    TECH_STACK.webflow,
+    TECH_STACK.wordpress,
+    TECH_STACK.vercel,
+    TECH_STACK.azure,
   ],
-  resume: {
-    fileName: "Sample.pdf",
-    downloadUrl: "/files/sample.pdf",
-  },
   projects: [
     {
-      title: "Portfolio Website 1",
+      title: "Pictoirel",
       summary:
-        "A personal portfolio website to showcase my projects and skills, built with Next.js and Tailwind CSS.",
-      image: "/projects/3d-portfolio.webp",
+        "A luxury memory book e-commerce platform — Relationship, Travel, Occasion, Festival & Corporate editions. Built with custom design, product customisation, and seamless checkout.",
+      image: "/projects/pictoirel.png",
       techStack: [
+        TECH_STACK.wordpress,
+        TECH_STACK.javascript,
+        TECH_STACK.figma,
+      ],
+      urls: { demo: "https://pictoirel.com", github: undefined, figma: undefined },
+      category: "Web App & Mobile App",
+    },
+    {
+      title: "XAI-IDS",
+      summary:
+        "An AI-powered Intrusion Detection System using CNN-LSTM for live traffic classification. Features real-time threat logging, SOC Analyst AI, red team attack simulation, and SHAP-based explainability.",
+      image: "/projects/xai-ids.jpg",
+      techStack: [
+        TECH_STACK.openai,
         TECH_STACK.reactjs,
+        TECH_STACK.nodejs,
+        TECH_STACK.postgresql,
+      ],
+      urls: { demo: undefined, github: undefined, figma: undefined },
+      category: "AI Automation",
+    },
+    {
+      title: "Saim Surfaces",
+      summary:
+        "A UAE-based flooring and outdoor surfaces company website — supply, installation and transformation of every surface. Covers flooring, outdoor surfaces, repairs & maintenance across sectors.",
+      image: "/projects/saim-surfaces.png",
+      techStack: [
         TECH_STACK.nextjs,
         TECH_STACK.tailwindcss,
-        TECH_STACK.typescript,
+        TECH_STACK.figma,
       ],
-      urls: {
-        demo: "https://3d-portfolio.derikn.com",
-        github: "https://github.com/Deri-Kurniawan/3d-portfolio",
-        figma:
-          "https://www.figma.com/design/TYBBBbA5cvBN4QU70hNxvr/3D-PORTFOLIO?node-id=307-16&t=1mhoto9IrOWXBn4O-1",
-      },
+      urls: { demo: "https://siamgroup.vercel.app", github: undefined, figma: undefined },
       category: "Web App",
     },
     {
-      title: "Portfolio Website 2",
+      title: "Intellix Info Tech",
       summary:
-        "A personal portfolio website to showcase my projects and skills, built with Next.js and Tailwind CSS.",
-      image: "/projects/3d-portfolio.webp",
+        "A UAE-based technology company website covering AI & Machine Learning solutions, chatbot integration, and web/mobile app development — helping businesses streamline operations through intelligent, customised tech.",
+      image: "/projects/intellix.png",
       techStack: [
-        TECH_STACK.reactjs,
         TECH_STACK.nextjs,
-        TECH_STACK.tailwindcss,
-        TECH_STACK.typescript,
+        TECH_STACK.openai,
+        TECH_STACK.firebase,
+        TECH_STACK.figma,
       ],
-      urls: {
-        demo: "https://3d-portfolio.derikn.com",
-        github: "https://github.com/Deri-Kurniawan/3d-portfolio",
-      },
-      category: "Web App",
-    },
-    {
-      title: "Portfolio Website 3",
-      summary:
-        "A personal portfolio website to showcase my projects and skills, built with Next.js and Tailwind CSS.",
-      image: "/projects/3d-portfolio.webp",
-      techStack: [
-        TECH_STACK.reactjs,
-        TECH_STACK.nextjs,
-        TECH_STACK.tailwindcss,
-        TECH_STACK.typescript,
-      ],
-      urls: {
-        demo: "https://3d-portfolio.derikn.com",
-        figma:
-          "https://www.figma.com/design/TYBBBbA5cvBN4QU70hNxvr/3D-PORTFOLIO?node-id=307-16&t=1mhoto9IrOWXBn4O-1",
-      },
-      category: "Web App",
-    },
-    {
-      title: "Portfolio Website 4",
-      summary:
-        "A personal portfolio website to showcase my projects and skills, built with Next.js and Tailwind CSS.",
-      image: "/projects/3d-portfolio.webp",
-      techStack: [
-        TECH_STACK.reactjs,
-        TECH_STACK.nextjs,
-        TECH_STACK.tailwindcss,
-        TECH_STACK.typescript,
-      ],
-      urls: {
-        github: "https://github.com/Deri-Kurniawan/3d-portfolio",
-        figma:
-          "https://www.figma.com/design/TYBBBbA5cvBN4QU70hNxvr/3D-PORTFOLIO?node-id=307-16&t=1mhoto9IrOWXBn4O-1",
-      },
-      category: "Web App",
-    },
-    {
-      title: "Portfolio Website 5",
-      summary:
-        "A personal portfolio website to showcase my projects and skills, built with Next.js and Tailwind CSS.",
-      image: "/projects/3d-portfolio.webp",
-      techStack: [
-        TECH_STACK.reactjs,
-        TECH_STACK.nextjs,
-        TECH_STACK.tailwindcss,
-        TECH_STACK.typescript,
-      ],
-      urls: {
-        github: "https://github.com/Deri-Kurniawan/3d-portfolio",
-      },
-      category: "Web App",
-    },
-    {
-      title: "Portfolio Website 6",
-      summary:
-        "A personal portfolio website to showcase my projects and skills, built with Next.js and Tailwind CSS.",
-      image: "/projects/3d-portfolio.webp",
-      techStack: [
-        TECH_STACK.reactjs,
-        TECH_STACK.nextjs,
-        TECH_STACK.tailwindcss,
-        TECH_STACK.typescript,
-      ],
-      urls: {
-        figma:
-          "https://www.figma.com/design/TYBBBbA5cvBN4QU70hNxvr/3D-PORTFOLIO?node-id=307-16&t=1mhoto9IrOWXBn4O-1",
-      },
+      urls: { demo: "https://intellixuae.com", github: undefined, figma: undefined },
       category: "Web App",
     },
   ],

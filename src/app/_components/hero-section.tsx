@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import MotionWrapper from "@/components/motion-wrapper";
 import { CONFIG } from "@/config";
 import { ASSETS } from "@/constant/assets";
+import TeamAvatar3D from "./team-avatar-3d";
 
 type TAnimateImageProps = MotionProps & {
   className: string;
@@ -76,15 +77,15 @@ const HeroSection = () => {
       className="dk-safe-x-padding mt-10 mb-[172px]"
       aria-label="Hero Section"
     >
-      {/* content */}
       <div className="grid grid-flow-row gap-10 xl:grid-cols-2 xl:grid-flow-col xl:gap-0">
+        {/* Text content */}
         <div className="flex flex-col items-center justify-center order-2 xl:items-start xl:order-1">
           <MotionWrapper
             as="p"
             className="font-montserrat font-bold text-2xl md:text-[28px] lg:text-[32px] text-accent mb-3 text-center xl:text-left"
             aria-label="Greeting"
           >
-            Welcome to {CONFIG.name.first}&apos;s Portfolio
+            Welcome
           </MotionWrapper>
           <MotionWrapper
             as="h2"
@@ -97,28 +98,25 @@ const HeroSection = () => {
             className="text-base font-medium text-center md:text-xl lg:text-2xl text-accent xl:text-left"
             aria-label="Introduction"
           >
-            I&apos;m {CONFIG.name.first}
-            {CONFIG.name.last && ` ${CONFIG.name.last}`}. A passionate{" "}
-            {CONFIG.role} based in {CONFIG.location}.
+            We&apos;re Godwin, Mashiruddin &amp; Saihaan — a team of developers
+            building powerful web apps, mobile experiences, and AI-driven
+            automation solutions, based in {CONFIG.location}.
           </MotionWrapper>
         </div>
-        {/* illustration */}
+
+        {/* 3D Avatar illustration */}
         <div className="xl:order-2">
           <div className="relative flex items-center justify-center order-1 xl:justify-end">
             <div className="relative">
-              <MotionWrapper className="relative w-[280px] h-[280px] md:w-[330px] md:h-[330px] lg:w-[480px] lg:h-[480px] bg-gray rounded-3xl overflow-clip">
-                <AnimatedImage
-                  className="w-[280px] h-[280px] md:w-[330px] md:h-[330px] lg:w-[480px] lg:h-[480px] absolute top-0 bottom-0 left-0 right-0"
-                  src={ASSETS.home.hero.avatarSmile}
-                  width={480}
-                  height={480}
-                  alt=""
-                  priority
-                  initial={{ opacity: 0.5, y: 500 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.2, duration: 1 }}
-                />
+              <MotionWrapper
+                className="relative w-[320px] h-[320px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] bg-gray rounded-3xl overflow-clip flex items-center justify-center"
+                initial={{ opacity: 0, y: 60 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.2, duration: 0.9 }}
+              >
+                <TeamAvatar3D />
               </MotionWrapper>
+
               {getDecorativeImages().map(
                 (
                   {
@@ -138,7 +136,7 @@ const HeroSection = () => {
                     src={src}
                     width={width}
                     height={height}
-                    alt="" // no need alt for decorative images
+                    alt=""
                     initial={initial}
                     animate={animate}
                     transition={transition}

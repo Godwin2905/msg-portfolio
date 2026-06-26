@@ -3,9 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { BsFileEarmarkPerson } from "react-icons/bs";
 import { RxCaretRight } from "react-icons/rx";
-import { CONFIG } from "@/config";
 import { NAVIGATION_LINKS } from "@/constant/navigation";
 import BrandIcon from "./brand-icon";
 
@@ -54,9 +52,8 @@ const Navbar = () => {
     <>
       <nav
         ref={navbarRef}
-        className={`sticky top-0 z-50 w-screen bg-white md:relative dk-safe-layout`}
+        className={`sticky top-0 z-50 w-screen bg-background md:relative dk-safe-layout`}
       >
-        {/* <Banner /> */}
         <div className="flex flex-row items-center justify-between py-6 border-b-2 border-b-gray dk-safe-x-padding">
           <Link className="z-50" href="/" onClick={closeMenu} prefetch={false}>
             <div className="w-8 h-10 lg:w-[42px] lg:h-[50px]">
@@ -66,7 +63,7 @@ const Navbar = () => {
           {/* desktop menu */}
           <div className="flex-row items-center justify-between hidden text-lg font-bold md:flex md:gap-6 lg:gap-8">
             <ul className="flex flex-row md:gap-6 lg:gap-8 justify-evenly">
-              {NAVIGATION_LINKS.map((link, _index) => (
+              {NAVIGATION_LINKS.map((link) => (
                 <li key={link.name}>
                   <Link
                     className={`${
@@ -79,15 +76,14 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <a
+            <Link
               className="px-6 py-2 text-white dk-gradient-btn rounded-xl"
-              href={CONFIG.resume.downloadUrl}
-              download={CONFIG.resume.fileName}
+              href="#contact"
             >
-              Resume
-            </a>
+              Let&apos;s Talk
+            </Link>
           </div>
-          {/* mobile hamburger menu */}
+          {/* mobile hamburger */}
           <div className="z-50 md:hidden">
             <label className="cursor-pointer hamburger">
               <input
@@ -112,7 +108,7 @@ const Navbar = () => {
       <div
         className={`${
           isMenuOpen ? "top-0" : "-translate-y-full"
-        } fixed top-0 w-screen h-screen transition-all duration-500 ease-in-out z-40 bg-white`}
+        } fixed top-0 w-screen h-screen transition-all duration-500 ease-in-out z-40 bg-background`}
         style={{
           paddingTop: navbarRef.current
             ? `${navbarRef.current.offsetHeight}px`
@@ -121,7 +117,7 @@ const Navbar = () => {
       >
         <div className="flex flex-col items-start justify-between p-4 text-lg font-medium lg:hidden lg:gap-8">
           <ul className="w-full">
-            {NAVIGATION_LINKS.map((link, _index) => (
+            {NAVIGATION_LINKS.map((link) => (
               <li key={link.name} className={`flex mb-2 rounded-lg`}>
                 <Link
                   className={`flex-1 py-4 dk-safe-x-padding`}
@@ -150,18 +146,15 @@ const Navbar = () => {
               </li>
             ))}
             <li className="flex text-white rounded-lg dk-gradient-bg">
-              <a
-                href="/"
+              <Link
+                href="#contact"
                 className="flex-1 py-4 dk-safe-x-padding"
-                download="Deri Kurniawan Resume"
+                onClick={closeMenu}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-semibold">Resume</span>
-                  <span className="text-4xl">
-                    <BsFileEarmarkPerson />
-                  </span>
+                  <span className="text-2xl font-semibold">Let&apos;s Talk</span>
                 </div>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

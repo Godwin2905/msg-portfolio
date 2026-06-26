@@ -1,153 +1,195 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import MotionWrapper from "@/components/motion-wrapper";
 import SectionHeader from "@/components/section-header";
 import { CONFIG } from "@/config";
-import { ASSETS } from "@/constant/assets";
 
-const AnimatedImage = motion(Image);
+type FormState = {
+  name: string;
+  email: string;
+  budget: string;
+  message: string;
+};
+
+const inputBase =
+  "w-full rounded-2xl border-2 border-[#2a2a2a] bg-[#141414] px-5 py-4 text-base font-medium text-accent placeholder:text-accent2 outline-none transition-all duration-200 focus:border-primary focus:shadow-[0_0_0_4px_rgba(162,147,255,0.15)] resize-none";
 
 export default function LetsConnectSection() {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
-  const socialMediaLinks = [
-    {
-      initial: { y: 50, opacity: 0 },
-      animate: inView ? { y: 0, opacity: 1 } : {},
-      transition: { duration: 0.5, delay: 0.4 },
-      whileHover: { scale: 1.1, transition: { duration: 0.2 } },
-      className:
-        "hidden lg:block absolute hover:cursor-pointer top-14 left-14 xl:left-24 w-10 h-10 md:w-[168px] md:h-[168px] z-10",
-      src: ASSETS.home.letsConnect.linkedin,
-      alt: "",
-      width: 168,
-      height: 168,
-      tabIndex: 0,
-      onClick: () => window.open(CONFIG.socials.linkedin, "_blank"),
-    },
-    {
-      initial: { y: 50, opacity: 0 },
-      animate: inView ? { y: 0, opacity: 1 } : {},
-      transition: { duration: 0.5, delay: 0.6 },
-      whileHover: { scale: 1.1, transition: { duration: 0.2 } },
-      className:
-        "hidden lg:block absolute hover:cursor-pointer top-14 right-14 xl:right-24 w-10 h-10 md:w-[168px] md:h-[168px] z-10",
-      src: ASSETS.home.letsConnect.instagram,
-      alt: "",
-      width: 168,
-      height: 168,
-      tabIndex: 0,
-      onClick: () => window.open(CONFIG.socials.instagram, "_blank"),
-    },
-    {
-      initial: { y: -50, opacity: 0 },
-      animate: inView ? { y: 0, opacity: 1 } : {},
-      transition: { duration: 0.5, delay: 1 },
-      whileHover: { scale: 1.1, transition: { duration: 0.2 } },
-      className:
-        "hidden lg:block absolute hover:cursor-pointer bottom-14 right-36 xl:right-44 md:right-24 w-10 h-10 md:w-[168px] md:h-[168px] z-10",
-      src: ASSETS.home.letsConnect.github,
-      alt: "",
-      width: 168,
-      height: 168,
-      tabIndex: 0,
-      onClick: () => window.open(CONFIG.socials.github, "_blank"),
-    },
-    {
-      initial: { y: -50, opacity: 0 },
-      animate: inView ? { y: 0, opacity: 1 } : {},
-      transition: { duration: 0.5, delay: 0.8 },
-      whileHover: { scale: 1.1, transition: { duration: 0.2 } },
-      className:
-        "hidden lg:block absolute hover:cursor-pointer bottom-14 left-36 xl:left-44 md:left-24 w-10 h-10 md:w-[168px] md:h-[168px] z-10",
-      src: ASSETS.home.letsConnect.dribbble,
-      alt: "",
-      width: 168,
-      height: 168,
-      tabIndex: 0,
-      onClick: () =>
-        window.open("https://dribbble.com/deri-kurniawan", "_blank"),
-    },
-    {
-      initial: { y: 100, opacity: 0 },
-      animate: inView ? { y: 0, opacity: 1 } : {},
-      transition: { duration: 0.5, delay: 0 },
-      whileHover: { scale: 1.1, transition: { duration: 0.2 } },
-      className:
-        "hidden lg:block absolute hover:cursor-pointer -bottom-64 w-10 h-10 md:w-[310px] md:h-[310px] z-10",
-      src: ASSETS.home.letsConnect.gmail,
-      alt: "",
-      width: 310,
-      height: 310,
-      tabIndex: 0,
-      onClick: () => window.open(`mailto:${CONFIG.email}`, "_self"),
-    },
-  ];
+  const [form, setForm] = useState<FormState>({
+    name: "",
+    email: "",
+    budget: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(
+      `New project enquiry from ${form.name}`,
+    );
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`,
+    );
+    window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
 
   return (
     <section
+      id="contact"
       ref={ref}
-      className="dk-safe-x-padding dk-section-distance overflow-y-hidden lg:h-[1000px]"
+      className="dk-safe-x-padding dk-section-distance"
       aria-label="Let's Connect Section"
     >
       <SectionHeader
-        title="Let's Connect"
-        description="Do you have any questions or a project in mind? Let's connect! I am here to help and excited to hear from you. You can also take a look at my work."
+        title="Let's Work Together"
+        description="Have a project in mind? Tell us about it and we'll get back to you within 24 hours."
         inViewport={inView}
         className="text-center"
         animate
       />
-      <div className="h-full mt-4">
-        <div className="relative flex flex-col items-center justify-center">
-          <div className="absolute hidden lg:block animate-ping -z-2">
-            <MotionWrapper
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={inView ? { scale: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 1 }}
-              className="rounded-full dk-gradient-bg h-96 w-96"
-            />
+
+      <MotionWrapper
+        className="mt-12 max-w-2xl mx-auto"
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        {submitted ? (
+          <div className="bg-gray rounded-[36px] p-10 flex flex-col items-center justify-center gap-4 text-center min-h-[300px]">
+            <div className="text-5xl">✅</div>
+            <h3 className="font-montserrat font-bold text-2xl text-accent">
+              Message Sent!
+            </h3>
+            <p className="text-accent2 text-base">
+              Your email client should have opened. We&apos;ll get back to you
+              as soon as possible.
+            </p>
+            <button
+              onClick={() => {
+                setSubmitted(false);
+                setForm({ name: "", email: "", budget: "", message: "" });
+              }}
+              className="mt-2 px-6 py-2 dk-gradient-btn text-white rounded-xl font-semibold text-sm"
+            >
+              Send Another
+            </button>
           </div>
-          <AnimatedImage
-            initial={{ y: 50, opacity: 0 }}
-            animate={inView ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="size-52 md:w-[330px] md:h-[330px] lg:w-[530px] lg:h-[530px] rounded-full bg-gray lg:bg-transparent"
-            src={ASSETS.home.letsConnect.avatarBigSmile}
-            alt=""
-            width={530}
-            height={530}
-            priority
-          />
-          {/* desktop only */}
-          {socialMediaLinks.map((socialMediaLink, index) => (
-            <AnimatedImage key={index.toString()} {...socialMediaLink} />
-          ))}
-          {/* mobile only */}
-          <div className="flex flex-row flex-wrap items-center justify-center gap-3 mt-4 lg:hidden">
-            {socialMediaLinks.map((socialMediaLink, index) => (
-              <AnimatedImage
-                initial={{ y: 0, opacity: 0 }}
-                animate={inView ? { y: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                key={index.toString()}
-                className="hover:cursor-pointer size-[100px]"
-                src={socialMediaLink.src}
-                alt={socialMediaLink.alt}
-                width={100}
-                height={100}
-                tabIndex={0}
-                onClick={socialMediaLink.onClick}
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            className="bg-gray rounded-[36px] p-8 md:p-10 flex flex-col gap-5"
+          >
+            {/* Name + Email row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="name"
+                  className="text-xs font-bold uppercase tracking-widest text-accent2"
+                >
+                  Your Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  className={inputBase}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="email"
+                  className="text-xs font-bold uppercase tracking-widest text-accent2"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="you@example.com"
+                  className={inputBase}
+                />
+              </div>
+            </div>
+
+            {/* Budget */}
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="budget"
+                className="text-xs font-bold uppercase tracking-widest text-accent2"
+              >
+                Budget
+              </label>
+              <input
+                id="budget"
+                name="budget"
+                type="text"
+                value={form.budget}
+                onChange={handleChange}
+                placeholder="e.g. $1,000 – $5,000"
+                className={inputBase}
               />
-            ))}
-          </div>
-        </div>
-      </div>
+            </div>
+
+            {/* Message */}
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="message"
+                className="text-xs font-bold uppercase tracking-widest text-accent2"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                value={form.message}
+                onChange={handleChange}
+                placeholder="Tell us about your project, goals, and timeline..."
+                className={inputBase}
+              />
+            </div>
+
+            {/* Submit */}
+            <button
+              type="submit"
+              className="w-full py-4 dk-gradient-btn text-white font-bold text-base rounded-2xl transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            >
+              Send Message →
+            </button>
+
+            <p className="text-center text-xs text-accent2">
+              Or email us directly at{" "}
+              <a
+                href={`mailto:${CONFIG.email}`}
+                className="dk-gradient-text font-semibold"
+              >
+                {CONFIG.email}
+              </a>
+            </p>
+          </form>
+        )}
+      </MotionWrapper>
     </section>
   );
 }
